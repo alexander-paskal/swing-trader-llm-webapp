@@ -3,11 +3,15 @@
 import sqlite3
 # sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import streamlit as st
-import yfinance as yf
-import plotly.graph_objs as go
-import plotly.io as pio
-from technical_page import technical_analysis_page
-from llm import initialize_llm
+
+try:
+    import yfinance as yf
+    import plotly.graph_objs as go
+    import plotly.io as pio
+    from technical_page import technical_analysis_page
+    from llm import initialize_llm
+except:
+    st.rerun()
 
 st.set_page_config(layout="wide", page_title="Stock Analysis Agent", initial_sidebar_state="expanded")
 # Sidebar for navigation between pages
