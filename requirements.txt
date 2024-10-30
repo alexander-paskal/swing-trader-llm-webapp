@@ -105,7 +105,6 @@ ipython==8.28.0
 itsdangerous==2.2.0
 jaraco.classes==3.4.0
 jedi==0.19.1
-Jinja2 @ file:///C:/b/abs_92fccttino/croot/jinja2_1716993447201/work
 jiter==0.4.2
 jmespath==1.0.1
 joblib==1.4.2
@@ -182,7 +181,6 @@ parso==0.8.4
 pathos==0.3.3
 peewee==3.17.7
 pexpect==4.9.0
-pillow @ file:///C:/b/abs_32o8er3uqp/croot/pillow_1721059447598/work
 pkginfo==1.11.2
 platformdirs==4.3.6
 plotly==5.24.1
