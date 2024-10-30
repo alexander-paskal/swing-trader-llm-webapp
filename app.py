@@ -21,6 +21,7 @@ analysis = st.sidebar.selectbox("Select Analysis Type", ['technical', 'fundament
 
 stock_symbol = st.sidebar.text_input("Enter Stock Symbol", value="AAPL")
 analyze_button = st.sidebar.button("📊 Analyze Stock", help="Click to start the stock analysis")
+llm = initialize_llm(model_option, st.secrets["OPENAI_API_KEY"])
 
 # Initialize session state
 if 'analyzed' not in st.session_state:
@@ -28,7 +29,7 @@ if 'analyzed' not in st.session_state:
     st.session_state.stock_info = None
     st.session_state.stock_data = None
     st.session_state.result = None
-    st.session_state.llm = initialize_llm(model_option, st.secrets["OPENAI_API_KEY"])
+    st.session_state.llm = llm
     
 
 
