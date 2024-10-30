@@ -39,7 +39,7 @@ base="dark"
 
 
 [logger]
-level = "debug"
+level = "info"
 # Level of logging for Streamlit's internal logger: "error", "warning",
 # "info", or "debug".
 
