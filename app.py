@@ -13,6 +13,7 @@ try:
 except:
     st.rerun()
 
+print("imports worked")
 st.set_page_config(layout="wide", page_title="Stock Analysis Agent", initial_sidebar_state="expanded")
 # Sidebar for navigation between pages
 
@@ -26,6 +27,7 @@ analysis = st.sidebar.selectbox("Select Analysis Type", ['technical', 'fundament
 stock_symbol = st.sidebar.text_input("Enter Stock Symbol", value="AAPL")
 analyze_button = st.sidebar.button("📊 Analyze Stock", help="Click to start the stock analysis")
 llm = initialize_llm(model_option, st.secrets["OPENAI_API_KEY"])
+print("LLM", type(llm))
 print(llm)
 # Initialize session state
 st.session_state.analyzed = False
