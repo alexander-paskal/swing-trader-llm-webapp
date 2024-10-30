@@ -10,7 +10,7 @@ PERIODS = ["1d", "5d", "1mo", "3mo", "6mo", "1y", "2y", "5y", "10y", "ytd", "max
 INTERVALS = ["1m", "2m", "5m", "15m", "30m", "60m", "90m", "1h", "1d", "5d", "1wk", "1mo", "3mo"]
 
 
-def technical_analysis_page(stock_symbol):
+def technical_analysis_page(stock_symbol, llm):
     # interval = st.selectbox("Tick Interval", INTERVALS)
     # period = st.selectbox("Tick Period", PERIODS)
     # data = get_data(stock_symbol, period=period, interval=interval)
@@ -23,7 +23,7 @@ def technical_analysis_page(stock_symbol):
     fig = combined_fig(daily)
     st.plotly_chart(fig)
     prompt = get_prompt(stock_symbol, daily=daily, weekly=weekly)
-    response = st.session_state.llm.invoke([
+    response = llm.invoke([
         ("human"), prompt
     ])
     st.markdown(response.content)

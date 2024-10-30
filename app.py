@@ -44,7 +44,7 @@ print("Working")
 
 with techno_tab:
     print("Working Tab")
-    technical_analysis_page(stock_symbol)
+    technical_analysis_page(stock_symbol, llm)
 with fundo_tab:
     print("Fundos")
     st.text("Well Fuck me buddy")
