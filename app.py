@@ -10,10 +10,11 @@ try:
     import plotly.io as pio
     from technical_page import technical_analysis_page
     from llm import initialize_llm
+    from loguru import logger
 except:
     st.rerun()
 
-print("imports worked")
+logger.info("imports worked")
 st.set_page_config(layout="wide", page_title="Stock Analysis Agent", initial_sidebar_state="expanded")
 # Sidebar for navigation between pages
 
@@ -27,8 +28,8 @@ analysis = st.sidebar.selectbox("Select Analysis Type", ['technical', 'fundament
 stock_symbol = st.sidebar.text_input("Enter Stock Symbol", value="AAPL")
 analyze_button = st.sidebar.button("📊 Analyze Stock", help="Click to start the stock analysis")
 llm = initialize_llm(model_option, st.secrets["OPENAI_API_KEY"])
-print("LLM", type(llm))
-print(llm)
+logger.info("LLM", type(llm))
+logger.info(llm)
 # Initialize session state
 st.session_state.analyzed = False
 st.session_state.stock_info = None
