@@ -4,7 +4,7 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 import numpy as np
-
+from loguru import logger
 
 PERIODS = ["1d", "5d", "1mo", "3mo", "6mo", "1y", "2y", "5y", "10y", "ytd", "max"]
 INTERVALS = ["1m", "2m", "5m", "15m", "30m", "60m", "90m", "1h", "1d", "5d", "1wk", "1mo", "3mo"]
@@ -16,7 +16,7 @@ def technical_analysis_page(stock_symbol, llm):
     # data = get_data(stock_symbol, period=period, interval=interval)
     daily = get_data(stock_symbol, period="2y", interval="1d")
     daily = get_technical_indicators(daily)
-
+    logger.info("daily data", daily, len(daily))
     weekly = get_data(stock_symbol, period="10y", interval="1wk")
     weekly = get_technical_indicators(weekly)
     print("This isworking")
