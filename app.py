@@ -28,7 +28,8 @@ if 'analyzed' not in st.session_state:
     st.session_state.stock_info = None
     st.session_state.stock_data = None
     st.session_state.result = None
-    st.session_state.llm = initialize_llm(model_option)
+    st.session_state.llm = initialize_llm(model_option, st.secrets["OPENAI_API_KEY"])
+    
 
 
 st.markdown('<p class="big-font">Stock Analysis Agent</p>', unsafe_allow_html=True)

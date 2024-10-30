@@ -18,22 +18,17 @@ MODEL_CLASS = Literal[
     "mixtral-8x7b-32768"
 ]
 
-load_dotenv()
-os.environ["SERPER_API_KEY"] = os.getenv("SERPER_API_KEY")
-os.environ["REDDIT_CLIENT_ID"] = os.getenv("REDDIT_CLIENT_ID")
-os.environ["REDDIT_CLIENT_SECRET"] = os.getenv("REDDIT_CLIENT_SECRET")
-os.environ["REDDIT_USER_AGENT"] = os.getenv("REDDIT_USER_AGENT")
 
 
-def initialize_llm(model_option: MODEL_CLASS):
+def initialize_llm(model_option: MODEL_CLASS, api_key: str):
 
     match model_option:
         case gpt_model if "gpt" in model_option:
-            return ChatOpenAI(openai_api_key=os.getenv("OPENAI_API_KEY"), model=gpt_model, temperature=0.1)
+            return ChatOpenAI(openai_api_key=api_key, model=gpt_model, temperature=0.1)
         case llama_model if "llama" in model_option:
-            return ChatGroq(groq_api_key=os.getenv("GROQ_API_KEY"), model=llama_model, temperature=0.1)
+            return ChatGroq(groq_api_key=api_key, model=llama_model, temperature=0.1)
         case mixtral_model if "mixtral" in model_option:
-            return ChatGroq(groq_api_key=os.getenv("GROQ_API_KEY"), model=mixtral_model, temperature=0.1)
+            return ChatGroq(groq_api_key=api_key, model=mixtral_model, temperature=0.1)
         case _:
             raise ValueError("Unknown")
 
